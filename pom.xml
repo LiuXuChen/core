@@ -1,0 +1,878 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.jetco</groupId>
+    <artifactId>core</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+    <description>java项目核心应用知识，对平常工作中经常用到的内容总结</description>
+
+    <!-- 模块 -->
+    <modules>
+        <module>common</module>
+        <module>design-pattern</module>
+    </modules>
+
+    <!--仓库地址 -->
+    <repositories>
+        <!--阿里云主仓库，代理了maven central和jcenter仓库-->
+        <repository>
+            <id>aliyun</id>
+            <name>aliyun</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <!--阿里云代理Spring 官方仓库-->
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://maven.aliyun.com/repository/spring</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <!-- 统一管理版本号，方便升级维护 -->
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring-boot.version>2.1.3.RELEASE</spring-boot.version>
+        <spring-cloud-dependencies.version>Greenwich.SR1</spring-cloud-dependencies.version>
+        <nacos-config-spring-cloud.version>0.2.1.RELEASE</nacos-config-spring-cloud.version>
+        <knife4j.swagger.version>2.0.5</knife4j.swagger.version>
+        <druid-starter>1.1.10</druid-starter>
+        <mybatis.version>3.5.4</mybatis.version>
+        <mybatis-plus-boot-starter.version>3.1.2</mybatis-plus-boot-starter.version>
+        <dynamic-datasource.version>2.5.4</dynamic-datasource.version>
+        <retry.version>1.2.4.RELEASE</retry.version>
+        <disruptor.version>3.3.4</disruptor.version>
+        <handoop.verison>2.10.1</handoop.verison>
+        <fastdfs-client.version>1.27.2</fastdfs-client.version>
+        <jsch.version>0.1.55</jsch.version>
+        <ehcache.version>3.6.3</ehcache.version>
+        <cglib.version>3.3.0</cglib.version>
+
+        <commons-net.version>3.8.0</commons-net.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
+        <commons-compress.version>1.20</commons-compress.version>
+        <commons-collections4.version>4.4</commons-collections4.version>
+        <commons-text.version>1.9</commons-text.version>
+        <commons-io.version>2.8.0</commons-io.version>
+        <commons-beanutils.version>1.9.4</commons-beanutils.version>
+        <commons-codec.version>1.15</commons-codec.version>
+        <httpclient.version>4.5.13</httpclient.version>
+        <avro.version>1.10.1</avro.version>
+        <zookeeper.version>3.6.2</zookeeper.version>
+        <freemarker.version>2.3.31</freemarker.version>
+        <ant.version>1.10.9</ant.version>
+        <poi.version>4.1.2</poi.version>
+
+        <commons-discovery.version>0.2</commons-discovery.version>
+        <wsdl4j.version>1.6.2</wsdl4j.version>
+        <servlet-api.version>4.0.1</servlet-api.version>
+        <jpa.version>2.2</jpa.version>
+        <poi-tl.version>1.7.3</poi-tl.version>
+        <java-unrar.version>1.7.0-1</java-unrar.version>
+        <jackson.version>2.11.3</jackson.version>
+        <gson.version>2.8.6</gson.version>
+        <fastjson.version>1.2.74</fastjson.version>
+
+        <dom4j.version>2.1.3</dom4j.version>
+        <log4j.verison>1.2.17</log4j.verison>
+        <slf4j.version>1.7.30</slf4j.version>
+        <assertj.version>3.16.1</assertj.version>
+        <validation.version>2.0.1.Final</validation.version>
+        <hibernate-validator.version>6.1.5.Final</hibernate-validator.version>
+        <jaxrpc.version>1.1</jaxrpc.version>
+        <axis.version>1.4</axis.version>
+        <guava.version>29.0-jre</guava.version>
+        <hutool.version>5.5.9</hutool.version>
+        <jsqlparser.vserion>1.4</jsqlparser.vserion>
+        <lombok.version>1.18.12</lombok.version>
+        <!-- 打包跳过单元测试 -->
+        <skipTests>true</skipTests>
+        <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+        <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+        <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
+        <maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
+        <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
+        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+        <maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
+        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+        <maven-enforcer-plugin.version>3.0.0-M2</maven-enforcer-plugin.version>
+        <maven-failsafe-plugin.version>2.22.1</maven-failsafe-plugin.version>
+        <maven-help-plugin.version>3.1.0</maven-help-plugin.version>
+        <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
+        <maven-invoker-plugin.version>3.1.0</maven-invoker-plugin.version>
+        <maven-jar-plugin.version>3.1.0</maven-jar-plugin.version>
+        <maven-javadoc-plugin.version>3.0.1</maven-javadoc-plugin.version>
+        <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
+        <maven-shade-plugin.version>3.2.1</maven-shade-plugin.version>
+        <maven-site-plugin.version>3.7.1</maven-site-plugin.version>
+        <maven-surefire-plugin.version>2.22.1</maven-surefire-plugin.version>
+        <maven-war-plugin.version>3.2.2</maven-war-plugin.version>
+
+    </properties>
+
+    <!-- 声明依赖，实际不会引入 -->
+    <dependencyManagement>
+
+        <dependencies>
+
+            <!-- spring boot -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- spring cloud -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- alibaba nacos 配置中心 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+                <version>${nacos-config-spring-cloud.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>guava</artifactId>
+                        <groupId>com.google.guava</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.alibaba</groupId>
+                        <artifactId>fastjson</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>commons-codec</groupId>
+                        <artifactId>commons-codec</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>commons-io</groupId>
+                        <artifactId>commons-io</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.commons</groupId>
+                        <artifactId>commons-lang3</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-databind</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-core</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- alibaba nacos 服务注册 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <version>${nacos-config-spring-cloud.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>guava</artifactId>
+                        <groupId>com.google.guava</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.commons</groupId>
+                        <artifactId>commons-lang3</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.google.code.findbugs</groupId>
+                        <artifactId>jsr305</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-databind</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.httpcomponents</groupId>
+                        <artifactId>httpclient</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- web组件依赖 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-databind</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.hibernate.validator</groupId>
+                        <artifactId>hibernate-validator</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- 重试机制 -->
+            <dependency>
+                <groupId>org.springframework.retry</groupId>
+                <artifactId>spring-retry</artifactId>
+                <version>${retry.version}</version>
+            </dependency>
+            <!-- 导入配置文件处理器，配置文件进行绑定就会有提示 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-configuration-processor</artifactId>
+                <version>${spring-boot.version}</version>
+                <optional>true</optional>
+            </dependency>
+            <!-- 运维监控 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+                <version>${spring-boot.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-databind</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- 以json格式输出信息 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-hateoas</artifactId>
+                <version>${spring-boot.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-web</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- 关系型数据库连接操作start-->
+            <!--jdbc -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-jdbc</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <!-- druid -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid-starter}</version>
+            </dependency>
+            <!-- jpa -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-jpa</artifactId>
+                <version>${spring-boot.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.dom4j</groupId>
+                        <artifactId>dom4j</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- mybatis-plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus-boot-starter.version}</version>
+            </dependency>
+            <!-- dynamic-datasource 动态数据源设置 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+                <version>${dynamic-datasource.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-autoconfigure</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- mybatis-plus代码生成器 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus-boot-starter.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.github.jsqlparser</groupId>
+                        <artifactId>jsqlparser</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- java持久化api -->
+            <dependency>
+                <groupId>javax.persistence</groupId>
+                <artifactId>javax.persistence-api</artifactId>
+                <version>${jpa.version}</version>
+            </dependency>
+            <!-- 必须使用0.9以上的版本 -->
+            <dependency>
+                <groupId>com.github.jsqlparser</groupId>
+                <artifactId>jsqlparser</artifactId>
+                <version>${jsqlparser.vserion}</version>
+            </dependency>
+            <!-- oracle database -->
+            <dependency>
+                <groupId>com.oracle</groupId>
+                <artifactId>ojdbc7</artifactId>
+                <version>12.1.0.2</version>
+            </dependency>
+            <!-- 关系型数据库连接操作end-->
+
+            <!-- 缓存数据库连接操作 start-->
+
+            <dependency>
+                <groupId>org.ehcache</groupId>
+                <artifactId>ehcache</artifactId>
+                <version>${ehcache.version}</version>
+            </dependency>
+
+            <!-- spring boot 与redis应用基本环境配置 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-redis</artifactId>
+                <version>1.4.7.RELEASE</version>
+            </dependency>
+
+            <!-- 缓存数据库连接操作 end-->
+
+            <!-- 消息队列操作 start -->
+
+            <!-- 消息队列操作 end -->
+
+            <!-- 搜索操作 start -->
+
+            <!-- 搜索操作 end -->
+
+            <!-- 文件上传、下载操作 start -->
+
+            <!-- Java实现的SSH通讯包 -->
+            <dependency>
+                <groupId>com.jcraft</groupId>
+                <artifactId>jsch</artifactId>
+                <version>${jsch.version}</version>
+            </dependency>
+
+            <!--
+                网络开发包，支持协议如下：
+                FTP
+                NNTP
+                SMTP
+                POP3
+                Telnet
+                TFTP
+                Finger
+                Whois
+                rexec/rcmd/rlogin
+                Time (rdate) and Daytime
+                Echo
+                Discard
+                NTP/SNTP
+            -->
+            <dependency>
+                <groupId>commons-net</groupId>
+                <artifactId>commons-net</artifactId>
+                <version>${commons-net.version}</version>
+            </dependency>
+
+            <!-- FastDFS -->
+            <dependency>
+                <groupId>com.github.tobato</groupId>
+                <artifactId>fastdfs-client</artifactId>
+                <version>${fastdfs-client.version}</version>
+            </dependency>
+
+            <!-- hadoop HDFS -->
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-common</artifactId>
+                <version>${handoop.verison}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-hdfs</artifactId>
+                <version>${handoop.verison}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-client</artifactId>
+                <version>${handoop.verison}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-mapreduce-client-core</artifactId>
+                <version>${handoop.verison}</version>
+            </dependency>
+
+
+            <!-- 文件上传、下载操作 end -->
+
+            <!-- 并发编程框架 -->
+            <dependency>
+                <groupId>com.lmax</groupId>
+                <artifactId>disruptor</artifactId>
+                <version>${disruptor.version}</version>
+            </dependency>
+            <!-- servlet 3.0 版本之后的地址 -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${servlet-api.version}</version>
+            </dependency>
+            <!-- 参数校验 start -->
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>${validation.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate-validator.version}</version>
+            </dependency>
+            <!-- 参数校验 end -->
+
+            <!-- 日志 start -->
+            <!-- slf4j-log4j12 -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <!-- log4j -->
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.verison}</version>
+            </dependency>
+            <!-- 日志 end -->
+
+            <!-- http、rpc调用 start -->
+            <!-- httpcomponents支持 HTTP 协议的客户端/服务器编程工具包 -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>4.5.12</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-codec</groupId>
+                        <artifactId>commons-codec</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.httpcomponents</groupId>
+                        <artifactId>httpcore</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpcore</artifactId>
+                <version>4.4.13</version>
+            </dependency>
+
+            <!-- 提供创建服务器端、客户端和网关SOAP操作WSDL的基本框架 -->
+            <dependency>
+                <groupId>org.apache.axis</groupId>
+                <artifactId>axis</artifactId>
+                <version>${axis.version}</version>
+            </dependency>
+            <!-- webservice服务开发调用-->
+            <dependency>
+                <groupId>javax.xml</groupId>
+                <artifactId>jaxrpc</artifactId>
+                <version>${jaxrpc.version}</version>
+            </dependency>
+
+            <!-- 查找可插拔接口实现类 -->
+            <dependency>
+                <groupId>commons-discovery</groupId>
+                <artifactId>commons-discovery</artifactId>
+                <version>${commons-discovery.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>wsdl4j</groupId>
+                <artifactId>wsdl4j</artifactId>
+                <version>${wsdl4j.version}</version>
+            </dependency>
+
+            <!-- http、rpc调用 end -->
+
+            <!--- 工具类 start -->
+            <!-- json解析 start -->
+            <!-- Java动态代理 -->
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib</artifactId>
+                <version>${cglib.version}</version>
+            </dependency>
+            <!-- 利用jackson进行json序列化化和反序列化 -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-core</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!-- google gson -->
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.version}</version>
+            </dependency>
+            <!-- json解析 end -->
+
+            <!-- apache poi解析excel start -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
+                <classifier>sources</classifier>
+                <type>java-source</type>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-codec</groupId>
+                        <artifactId>commons-codec</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.commons</groupId>
+                        <artifactId>commons-collections4</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.commons</groupId>
+                        <artifactId>commons-compress</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>commons-codec</groupId>
+                        <artifactId>commons-codec</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.commons</groupId>
+                        <artifactId>commons-collections4</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml-schemas</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-scratchpad</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <!-- apache poi解析excel end -->
+
+            <!-- xml解析 start -->
+            <!-- dom4j解析xml节点 -->
+            <dependency>
+                <groupId>org.dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>${dom4j.version}</version>
+            </dependency>
+            <!-- xml解析 end -->
+
+            <!-- apache commons utils start -->
+            <!-- 处理字符串的算法库 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-text</artifactId>
+                <version>${commons-text.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.commons</groupId>
+                        <artifactId>commons-lang3</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- 字符串及时间操作相关工具类 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+            <!-- 集合/数组相关工具类 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${commons-collections4.version}</version>
+            </dependency>
+            <!-- 压缩、解压缩文件的相关工具类 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-compress</artifactId>
+                <version>${commons-compress.version}</version>
+            </dependency>
+            <!-- apache ant 工具类 -->
+            <dependency>
+                <groupId>org.apache.ant</groupId>
+                <artifactId>ant</artifactId>
+                <version>${ant.version}</version>
+            </dependency>
+            <!-- IO相关工具类 -->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+            <!-- JavaBean操作工具类 -->
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${commons-beanutils.version}</version>
+            </dependency>
+            <!-- apache commons utils end -->
+            <!-- hutool java工具类库  -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <!-- guava工具类 -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.innoventsolutions.birt.runtime</groupId>
+                <artifactId>org.apache.commons.logging_1.1.1.v201101211721</artifactId>
+                <version>4.8.0</version>
+            </dependency>
+            <!--- 工具类 end -->
+
+            <!-- swagger2文档 -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.swagger.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.javassist</groupId>
+                        <artifactId>javassist</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.google.guava</groupId>
+                        <artifactId>guava</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- freemarker 模板  -->
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>${freemarker.version}</version>
+            </dependency>
+            <!-- Word模板引擎，基于Microsoft Word模板和数据生成新的文档 -->
+            <dependency>
+                <groupId>com.deepoove</groupId>
+                <artifactId>poi-tl</artifactId>
+                <version>${poi-tl.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.commons</groupId>
+                        <artifactId>commons-lang3</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.poi</groupId>
+                        <artifactId>poi</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.poi</groupId>
+                        <artifactId>poi-ooxml</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.poi</groupId>
+                        <artifactId>poi-ooxml-schemas</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+        </dependencies>
+
+    </dependencyManagement>
+
+    <dependencies>
+
+        <!-- slf4j-log4j12 -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+
+        <!-- swagger2文档 -->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.javassist</groupId>
+                    <artifactId>javassist</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- 参数校验 start -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+        <!-- 参数校验 end -->
+
+        <!-- google guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+
+        <!-- hutool java工具类库  -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+        </dependency>
+
+        <!-- 处理字符串的算法库 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-text</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.commons</groupId>
+                    <artifactId>commons-lang3</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- 字符串及时间操作相关工具类 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <!-- 集合/数组相关工具类 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+        </dependency>
+        <!-- 压缩、解压缩文件的相关工具类 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
+        </dependency>
+        <!-- JavaBean操作工具类 -->
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+        </dependency>
+
+        <!-- mybatis-plus -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- test start -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>2.1.7.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- test end -->
+
+    </dependencies>
+
+
+</project>

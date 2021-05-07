@@ -1,0 +1,72 @@
+server:
+  port: 8888
+
+spring:
+  profiles:
+    ### 当前环境：dev/test/prod
+    active: dev
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
+  main:
+    allow-bean-definition-overriding: true
+  banner:
+    charset: UTF-8
+  messages:
+    encoding: UTF-8
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+      enabled: true
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+      force-request: true
+      force-response: true
+    converters:
+      preferred-json-mapper: jackson
+  ### 日期格式化和序列化配置
+  jackson:
+    #参数意义：
+    #JsonInclude.Include.ALWAYS       默认
+    #JsonInclude.Include.NON_DEFAULT   属性为默认值不序列化
+    #JsonInclude.Include.NON_EMPTY     属性为 空（””） 或者为 NULL 都不序列化
+    #JsonInclude.Include.NON_NULL      属性为NULL  不序列化
+    default-property-inclusion: ALWAYS
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+      #格式化输出
+      indent_output: true
+      #忽略无法转换的对象
+      fail_on_empty_beans: false
+    deserialization:
+      #允许对象忽略json中不存在的属性
+      fail_on_unknown_properties: false
+    parser:
+      #允许出现特殊字符和转义符
+      allow_unquoted_control_chars: true
+      #允许出现单引号
+      allow_single_quotes: true
+  ### 静态资源配置
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/templates/,classpath:/static/,classpath:/public/,file:${file.dir}
+
+### 日志路径
+logging:
+  config: classpath:logback-spring.xml
+  path: ./jetco/logs
+  level:
+    org:
+      springframework: debug
+
+### 打印自动配置报告
+debug: true
+
+
+
+
