@@ -91,7 +91,7 @@
         <zookeeper.version>3.6.2</zookeeper.version>
         <freemarker.version>2.3.31</freemarker.version>
         <ant.version>1.10.11</ant.version>
-        <poi.version>4.1.2</poi.version>
+        <poi.version>5.2.1</poi.version>
 
         <commons-discovery.version>0.2</commons-discovery.version>
         <wsdl4j.version>1.6.2</wsdl4j.version>
