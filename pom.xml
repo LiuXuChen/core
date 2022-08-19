@@ -90,7 +90,7 @@
         <avro.version>1.10.1</avro.version>
         <zookeeper.version>3.6.2</zookeeper.version>
         <freemarker.version>2.3.31</freemarker.version>
-        <ant.version>1.10.9</ant.version>
+        <ant.version>1.10.11</ant.version>
         <poi.version>4.1.2</poi.version>
 
         <commons-discovery.version>0.2</commons-discovery.version>
